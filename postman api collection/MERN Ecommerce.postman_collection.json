@@ -1,0 +1,713 @@
+{
+	"info": {
+		"_postman_id": "a1960193-ac60-4c3f-8cf1-fedd188ccfb9",
+		"name": "MERN Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/products?page=2",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Get all products in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"name\": \"MacBook Pro\",\r\n        \"price\": \"45.89\",\r\n        \"description\": \"Ultra-fast cards (2) to take better pictures and Full HD videos (1) with your compact to mid-range point-and-shoot cameras and camcorders. With SanDisk Ultra SDXC UHS-I cards you’ll benefit from faster downloads, high capacity, and better performance to capture and store 128GB (5) of high quality pictures and Full HD video (1). Take advantage of ultra-fast read speeds of up to 80MB/s (3) to save time moving photos and videos from the card to your computer. From a leader in flash memory storage, SanDisk Ultra SDXC UHS-I cards are compatible with SDHC and SDXC digital devices, and come with a 10-year limited warranty (6).\",\r\n        \"ratings\": 4.5,\r\n        \"images\": [\r\n            {\r\n                \"public_id\": \"products/dsvbpny402gelwugv2le\",\r\n                \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg\"\r\n            }\r\n        ],\r\n        \"category\": \"Electronics\",\r\n        \"seller\": \"Ebay\",\r\n        \"stock\": 50,\r\n        \"numOfReviews\": 32,\r\n        \"reviews\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/product/new",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"product",
+								"new"
+							]
+						},
+						"description": "Create New Product."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/product/asasdfag",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"asasdfag"
+							]
+						},
+						"description": "Get single product by it's ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1//admin/product/607dfb34bb910017a4d19c5",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"",
+								"admin",
+								"product",
+								"607dfb34bb910017a4d19c5"
+							]
+						},
+						"description": "Update product by its id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1//admin/product/607dfb34bb910017a4d19c55",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"",
+								"admin",
+								"product",
+								"607dfb34bb910017a4d19c55"
+							]
+						},
+						"description": "Delete product by it's ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"testpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/register",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						},
+						"description": "Register user and assign jwt token."
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mdanisurrahmanrony50@gmail.com\",\r\n    \"password\": \"ronypassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/login",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						},
+						"description": "Login user and assign jwt token"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/logout",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						},
+						"description": "Logout user and clear the cookie."
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"anisurrahmanrony3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/password/forgot",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"password",
+								"forgot"
+							]
+						},
+						"description": "Send password recovery email using nodemailer"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"ronypassword1\",\r\n    \"confirmPassword\": \"ronypassword1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/password/reset/1ee1f2f7656a19571b89d6aaad9d720afcef0d6b",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"password",
+								"reset",
+								"1ee1f2f7656a19571b89d6aaad9d720afcef0d6b"
+							]
+						},
+						"description": "Reset password."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get User Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/me",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\" : \"ronypassword1\",\r\n    \"password\" : \"ronypassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/password/update",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"password",
+								"update"
+							]
+						},
+						"description": "Update password of currently logged in user."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Rony Rony\",\r\n    \"email\" : \"anisurrahmanrony3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/me/update",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"update"
+							]
+						},
+						"description": "Update profile of currently logged in user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get all User - Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}} /api/v1/admin/users",
+							"host": [
+								"{{DOMAIN}} "
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"users"
+							]
+						},
+						"description": "Get all user - only for admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details - ADMIN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/user/607f2605e5e1eb2b58829253",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"607f2605e5e1eb2b58829253"
+							]
+						},
+						"description": "Get user details by it's id - only for admins."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - ADMIN",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"test\",\r\n    \"email\" : \"test@gmail.com\",\r\n    \"role\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/user/6080b2a63a0a732128709304",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"6080b2a63a0a732128709304"
+							]
+						},
+						"description": "Update user by it's ID - only for admins."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - ADMIN",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/user/6080aed93a0a732128709303",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"6080aed93a0a732128709303"
+							]
+						},
+						"description": "Delete user by it's ID - only for admins."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create New Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"itemsPrice\" : 2.75,\r\n     \"taxPrice\" : 0.14,\r\n     \"shippingPrice\" : 25,\r\n     \"totalPrice\" : 27.89,\r\n     \"orderItems\" : [\r\n         {            \r\n            \"product\": \"607dfb34bb910017a4d19c65\",\r\n            \"name\": \"Kauffman Orchards Homegrown McIntosh Apples\",\r\n            \"price\": 2.75,\r\n            \"image\": \"https://res.cloudinary.com/bookit/image/upload/v1606293152/products/i0k1wdwi5hrpmzwxvsds.jpg\",            \r\n            \"quantity\" : 1\r\n        }\r\n     ],\r\n     \"shippingInfo\" : {\r\n         \"address\" : \"3951 Smith Stress\",\r\n         \"city\" : \"New York\",\r\n         \"phoneNo\" : 55555551264,\r\n         \"postalCode\" : 10001,\r\n         \"country\" : \"United Sates\"\r\n     },\r\n     \"paymentInfo\" : {\r\n         \"id\" : \"pi_lMrMVNA1MMiRMt8E1BguvVIo\",\r\n         \"status\" : \"succeeded\"\r\n     }     \r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/order/new",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"new"
+							]
+						},
+						"description": "Create new order and save in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/order/60813f338a33091990af0544",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"60813f338a33091990af0544"
+							]
+						},
+						"description": "Get single order by  it's ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Logged In User Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/orders/me",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"me"
+							]
+						},
+						"description": "Get all logged in user orders."
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Orders - ADMIN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/orders/",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"orders",
+								""
+							]
+						},
+						"description": "Get all orders - only for admins."
+					},
+					"response": []
+				},
+				{
+					"name": "Update / Process Order - ADMIN",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\" : \"Delivered\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/order/60815fb45151881df04c8eb5",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"order",
+								"60815fb45151881df04c8eb5"
+							]
+						},
+						"description": "Update and process order."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order - ADMIN",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/admin/order/60815fb45151881df04c8eb5",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"order",
+								"60815fb45151881df04c8eb5"
+							]
+						},
+						"description": "Delete order by  it's ID - only for admins."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get all Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/reviews?id=607dfb34bb910017a4d19c61",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "607dfb34bb910017a4d19c61"
+								}
+							]
+						},
+						"description": "Get all reviews of a specific product."
+					},
+					"response": []
+				},
+				{
+					"name": "Create / Update Review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\" : 5,\r\n    \"comment\" : \"Quality Good\",\r\n    \"productId\" : \"607dfb34bb910017a4d19c61\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/review",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"review"
+							]
+						},
+						"description": "Create or Update review of product."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/api/v1/reviews?productId=607dfb34bb910017a4d19c5f&id=608167fab24eab0594ac8863",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "607dfb34bb910017a4d19c5f"
+								},
+								{
+									"key": "id",
+									"value": "608167fab24eab0594ac8863"
+								}
+							]
+						},
+						"description": "Delete review of a product."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
